@@ -1,0 +1,132 @@
+Linux Account Sign-in
+ssh cs332e14@shell.ecs.fullerton.edu
+Password: HiYdE87v
+
+MySQL Fullerton  Sign-in
+mysql -h mariadb -u cs332e14 -p
+Password: HiYdE87v
+
+Access my Database
+use cs332e14
+
+Create Base Database (ALREADY DONE)
+SOURCE /home/titan0/cs332e/cs332e14/homepage/command.sql
+
+Populate Database (ALREADY DONE)
+INSERT INTO professor (professor_ssn, full_name, street_address, city, state, zip_code, sex, title, area_code, seven_digit_number, salary) VALUES
+('000-00-0001', 'John Doe', '1234 Maple St', 'Anytown', 'CA', '90210', 'Male', 'Professor', '310', '5556789', 90000.00),
+('000-00-0002', 'Jane Smith', '2345 Oak St', 'Othertown', 'CA', '75001', 'Female', 'Professor', '214', '5551234', 80000.00),
+('000-00-0003', 'Jim Brown', '3456 Pine St', 'Sometown', 'CA', '33101', 'Male', 'Professor', '305', '5554321', 100000.00);
+
+INSERT INTO department (chairperson_ssn, full_name, office_location, telephone_number) VALUES
+('000-00-0003', 'Computer Engineering', 'Building E', '(310)-610-6464'),
+('000-00-0002', 'Computer Science', 'Building CS', '(310)-510-5454');
+
+INSERT INTO course (title, textbook, units, department_id) VALUES
+('Computer Structure', 'Computer Architecture and Organization', 3, 1),
+('Electronics', 'Electronics Fundamentals', 3, 1),
+('Introduction to Programming', 'Practical Programming', 3, 2),
+('File Structure and Database', 'Fundamentals of Database Systems', 3, 2);
+
+INSERT INTO section (professor_ssn, course_id, section_number, beginning_time, ending_time, classroom, number_of_seats) VALUES
+('000-00-0003', 1, 1, '09:00:00', '10:15:00', 'Room 101', 30),
+('000-00-0003', 2, 1, '11:00:00', '12:15:00', 'Room 201', 30),
+('000-00-0003', 2, 2, '13:00:00', '14:15:00', 'Room 201', 30),
+('000-00-0002', 3, 1, '15:00:00', '16:15:00', 'Room 103', 30),
+('000-00-0001', 4, 1, '08:00:00', '9:15:00', 'Room 204', 30),
+('000-00-0001', 4, 2, '10:00:00', '11:15:00', 'Room 204', 30);
+
+INSERT INTO meeting_days (professor_ssn, course_id, section_number, meeting_day) VALUES
+('000-00-0003', 1, 1, 'Monday'),
+('000-00-0003', 1, 1, 'Wednesday'),
+('000-00-0003', 2, 1, 'Tuesday'),
+('000-00-0003', 2, 1, 'Thursday'),
+('000-00-0003', 2, 2, 'Monday'),
+('000-00-0003', 2, 2, 'Wednesday'),
+('000-00-0002', 3, 1, 'Tuesday'),
+('000-00-0002', 3, 1, 'Thursday'),
+('000-00-0001', 4, 1, 'Friday'),
+('000-00-0001', 4, 2, 'Friday');
+
+INSERT INTO student_record (cwid, first_name, last_name, street_address, telephone_number, department_id) VALUES
+(0000000001, 'Alice', 'Johnson', '4567 Elm St', '310-555-0001', 1),
+(0000000002, 'Bob', 'Lee', '5678 Spruce St', '214-555-0002', 2),
+(0000000003, 'Charlie', 'Smith', '1234 Oak St', '323-555-0003', 1),
+(0000000004, 'Diana', 'Morales', '2345 Pine St', '213-555-0004', 2),
+(0000000005, 'Ethan', 'Wong', '3456 Maple St', '310-555-0005', 1),
+(0000000006, 'Fiona', 'Chen', '4567 Birch St', '214-555-0006', 2),
+(0000000007, 'George', 'Kumar', '5678 Cedar St', '323-555-0007', 1),
+(0000000008, 'Hannah', 'Ali', '6789 Palm St', '213-555-0008', 2);
+
+INSERT INTO enrollment_records (cwid, professor_ssn, course_id, section_number, grade) VALUES
+(0000000001, '000-00-0003', 1, 1, 'A'),
+(0000000002, '000-00-0003', 1, 1, 'B'),
+(0000000003, '000-00-0003', 1, 1, 'A-'),
+(0000000004, '000-00-0003', 2, 1, 'B+'),
+(0000000005, '000-00-0003', 2, 1, 'C'),
+(0000000006, '000-00-0003', 2, 2, 'B-'),
+(0000000007, '000-00-0003', 2, 2, 'A'),
+(0000000008, '000-00-0003', 2, 2, 'C+'),
+(0000000001, '000-00-0002', 3, 1, 'B'),
+(0000000002, '000-00-0002', 3, 1, 'C-'),
+(0000000003, '000-00-0002', 3, 1, 'B+'),
+(0000000004, '000-00-0001', 4, 1, 'A'),
+(0000000005, '000-00-0001', 4, 1, 'B-'),
+(0000000006, '000-00-0001', 4, 1, 'C+'),
+(0000000007, '000-00-0001', 4, 2, 'A-'),
+(0000000008, '000-00-0001', 4, 2, 'B'),
+(0000000001, '000-00-0001', 4, 2, 'A'),
+(0000000002, '000-00-0001', 4, 2, 'B+'),
+(0000000003, '000-00-0001', 4, 2, 'C'),
+(0000000004, '000-00-0001', 4, 2, 'C-');
+
+INSERT INTO college_degrees (professor_ssn, college_degree) VALUES
+('000-00-0001', 'Ph.D. in Computer Science'),
+('000-00-0001', 'M.Sc. in Artificial Intelligence'),
+('000-00-0003', 'Ph.D. in Electrical Engineering'),
+('000-00-0003', 'B.Sc. in Physics'),
+('000-00-0002', 'Ph.D. in Software Engineering'),
+('000-00-0002', 'M.Sc. in Information Systems'),
+('000-00-0002', 'B.Sc. in Computer Science');
+
+INSERT INTO minors (department_id, cwid) VALUES
+(2, 0000000001),
+(1, 0000000002), 
+(2, 0000000003),
+(1, 0000000004),
+(2, 0000000005),
+(1, 0000000006);
+
+For Professors:
+a. Given the SSN of a Professor, List the Titles, Classrooms, Meeting Days, and Time of His/Her Classes:
+
+SELECT c.title, s.classroom, md.meeting_day, s.beginning_time, s.ending_time
+FROM professor p
+JOIN section s ON p.professor_ssn = s.professor_ssn
+JOIN course c ON s.course_id = c.course_id
+JOIN meeting_days md ON s.course_id = md.course_id AND s.section_number = md.section_number AND s.professor_ssn = md.professor_ssn
+WHERE p.professor_ssn = '000-00-0001';  -- Replace '000-00-0001' with the actual SSN
+
+b. Given a Course Number and a Section Number, Count How Many Students Get Each Distinct Grade:
+
+SELECT er.grade, COUNT(*) AS count
+FROM enrollment_records er
+WHERE er.course_id = 1 AND er.section_number = 1  -- Replace 1 with the actual course_id and section_number
+GROUP BY er.grade;
+
+For Students:
+a. Given a Course Number List the Sections of the Course, Including the Classrooms, the Meeting Days and Time, and the Number of Students Enrolled in Each Section:
+
+SELECT s.course_id, s.section_number, s.classroom, md.meeting_day, s.beginning_time, s.ending_time, COUNT(er.cwid) AS enrolled_students
+FROM section s
+JOIN meeting_days md ON s.course_id = md.course_id AND s.section_number = md.section_number
+LEFT JOIN enrollment_records er ON s.course_id = er.course_id AND s.section_number = er.section_number
+WHERE s.course_id = 1  -- Replace 1 with the actual course_id
+GROUP BY s.course_id, s.section_number, s.classroom, md.meeting_day, s.beginning_time, s.ending_time;
+
+b. Given the Campus Wide ID of a Student, List All Courses the Student Took and the Grades:
+
+SELECT c.title, er.grade
+FROM enrollment_records er
+JOIN course c ON er.course_id = c.course_id
+WHERE er.cwid = 0000000001;  -- Replace 0000000001 with the actual CWID
